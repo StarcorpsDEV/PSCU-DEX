@@ -4,6 +4,7 @@ import "./globals.css";
 import Thirdweb from "@/components/Thirdweb";
 import Header from "@/components/Header";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Thirdweb>
+      <Analytics />
         <body className={`${inter.className} min-h-screen bg-gray-50 flex flex-col`}>
           <Toaster />
           <Header />
