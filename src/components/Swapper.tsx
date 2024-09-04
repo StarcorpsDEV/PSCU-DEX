@@ -95,8 +95,9 @@ export default function Swapper() {
     const { loading: quoteLoading, fee, outputAmount } = useQuote({ tokenIn: inputToken, tokenOut: outputToken, amount: toUnits(amount.toString(), inputToken?.decimals ?? 18) });
 
     const canSwap = !quoteLoading && account && inputToken && outputToken && amount && fee;
-    const price = amount && outputAmount && outputToken ?  Math.ceil(parseFloat(amount) / toTokens(outputAmount, outputToken.decimals)*1000000000)/1000000000 : ""
-    const priceInverted = amount && outputAmount && outputToken ?  Math.ceil(toTokens(outputAmount, outputToken.decimals) / parseFloat(amount) *1000000000)/1000000000 : ""
+    const outAmount = outputAmount && outputToken ?  Number(toTokens(outputAmount, outputToken.decimals)) : 0
+    const price = amount && outputAmount && outputToken ?  Math.ceil(amount / outAmount*1000000000)/1000000000 : ""
+    const priceInverted = amount && outputAmount && outputToken ?  Math.ceil(outAmount / amount * 1000000000)/1000000000 : ""
 
     return <Card className="">
         <CardHeader>
