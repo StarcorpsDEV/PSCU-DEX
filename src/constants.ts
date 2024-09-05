@@ -2,18 +2,13 @@ import getContract from "./lib/get-contract";
 import Token from "./types/token";
 
 export const tokens: { [id: string]: Token } = {
-  "wmatic":{
+  "wpol":{
     "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-    "symbol": "wMATIC",
+    "symbol": "wPOL",
     "decimals": 18,
-    "image": "/native-token-icons/matic.png"
+    "image": "/native-token-icons/pol.png"
   },
-  "weth":{
-    "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-    "symbol": "wETH",
-    "decimals": 18,
-    "image": "/native-token-icons/eth.png"
-  },
+
   "usdc":{
     "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
     "symbol": "USDC",

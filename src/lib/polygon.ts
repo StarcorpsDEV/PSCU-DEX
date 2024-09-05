@@ -6,7 +6,7 @@ export default defineChain({
     rpc: "https://polygon.llamarpc.com",
     nativeCurrency: {
         name: "Polygon",
-        symbol: "MATIC",
+        symbol: "POL",
         decimals: 18
     },
 });
