@@ -29,12 +29,10 @@ export default function useQuote({ tokenIn, amount, tokenOut }: { tokenIn?: Toke
                 });
                 poolCache.set(key, pools);
             }
-
             if (pools.length === 0) {
                 toast.error("No path found for this token pair", { duration: 5000, id: "no-path" });
                 return {}
             }
-
             const results: bigint[] = await Promise.all(pools.map(async (pool: GetUniswapV3PoolResult, i: number) => {
                 const quoteTx = quote({
                     tokenIn: tokenIn,
@@ -42,7 +40,6 @@ export default function useQuote({ tokenIn, amount, tokenOut }: { tokenIn?: Toke
                     amount,
                     fee: pool.poolFee
                 })
-
                 try {
                     // if the simulation takes longer than 5 seconds, it's almost guaranteed to fail
                     return await simulateTransaction({ transaction: quoteTx });
@@ -54,6 +51,8 @@ export default function useQuote({ tokenIn, amount, tokenOut }: { tokenIn?: Toke
             const expectedOutput = bigIntMax(...results);
             const bestPoolIdx = results.findIndex(a => a === expectedOutput);
             const bestFee = pools[bestPoolIdx].poolFee ?? BigInt(0);
+            
+            console.log(expectedOutput , bestPoolIdx)
 
             if (!expectedOutput || !bestFee) {
                 toast.error("No path found for this token pair", { duration: 5000, id: "no-path" });

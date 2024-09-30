@@ -1,6 +1,6 @@
 import { Address, getContract as thirdwebGetContract, Chain } from "thirdweb";
 import client from "@/lib/thirdweb-client";
-import polygon from "@/lib/polygon";
+import avalanche from "@/lib/avalanche";
 
 type GetContractOptions = {
     address: Address;
@@ -10,7 +10,7 @@ type GetContractOptions = {
 export default function getContract(options: GetContractOptions) {
     return thirdwebGetContract({
         client,
-        chain: options.chain ?? polygon,
+        chain: options.chain ?? avalanche,
         address: options.address
     });
 }

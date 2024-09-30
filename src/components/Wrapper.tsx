@@ -15,7 +15,7 @@ import { tokens } from "@/constants";
 import getContract from "@/lib/get-contract";
 
 const WETH_CONTRACT = getContract({
-    address: tokens["wpol"].address
+    address: tokens["wavax"].address
 })
 
 export default function Wrapper() {
@@ -24,17 +24,17 @@ export default function Wrapper() {
     return (
         <Popover>
             <PopoverTrigger asChild>
-                <Button className="h-full rounded-xl" disabled={!account} variant="outline">Wrap POL</Button>
+                <Button className="h-full rounded-xl" disabled={!account} variant="outline">Wrap AVAX</Button>
             </PopoverTrigger>
             <PopoverContent className="w-80">
                 <Card className="border-none shadow-none">
                     <CardHeader>
-                        <CardTitle>Wrap POL</CardTitle>
+                        <CardTitle>Wrap AVAX</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="flex items-center gap-2">
                             <Input placeholder="0" type="number" onChange={(e) => setAmount(parseFloat(e.target.value))} />
-                            POL
+                            AVAX
                         </div>
                         <div className="mt-4 w-full">
                             <TransactionButton
@@ -47,9 +47,9 @@ export default function Wrapper() {
                                     })
                                     return tx;
                                 }}
-                                onSent="Wrapping your POL..."
-                                onConfirmed="Successfully wrapped POL"
-                                onError="Failed to wrap your POL"
+                                onSent="Wrapping your AVAX..."
+                                onConfirmed="Successfully wrapped AVAX"
+                                onError="Failed to wrap your AVAX"
                                 successCallback={() => setAmount(0)}
                             >
                                 Wrap

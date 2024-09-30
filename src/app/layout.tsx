@@ -4,13 +4,12 @@ import "./globals.css";
 import Thirdweb from "@/components/Thirdweb";
 import Header from "@/components/Header";
 import { Toaster } from "react-hot-toast";
-import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Badgers Dex",
-  description: "Collectif of the Badgers Diamond Hands - Decentralized exchange to trade Fluids ERC-20 GT on Polygon.",
+  title: "PSCU Dex",
+  description: "Pulsar Star Corporation United - Decentralized exchange to trade UFC ERC-20 tokens on Avalanche.",
 };
 
 export default function RootLayout({
@@ -21,8 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Thirdweb>
-      <Analytics />
-        <body className={`${inter.className} min-h-screen bg-gray-50 flex flex-col`}>
+        <body className={`${inter.className} min-h-screen dark bg-black flex flex-col`}>
           <Toaster />
           <Header />
           {children}

@@ -6,13 +6,13 @@ type WrapOptions = {
 	amount: bigint;
 }
 
-const WPOL_CONTRACT = getContract({
-	address: tokens['wpol'].address
+const WAVAX_CONTRACT = getContract({
+	address: tokens['wavax'].address
 });
 
 export default function wrap(options: WrapOptions) {
 	return prepareContractCall({
-		contract: WPOL_CONTRACT,
+		contract: WAVAX_CONTRACT,
 		method: "function deposit()",
 		params: [],
 		value: options.amount
